@@ -10,13 +10,14 @@ import java.util.Date;
 
 public class Dialogo01 {
 
-	// !! modificato per verific funzionamento GIT
+	// !! modificato per verifica funzionamento GIT
 	public static void main(String[] args) {
 		ServerSocket serverSocket;
 		try {
 			// mi metto in ascolto sulla porta 9000
 			serverSocket = new ServerSocket(9000);
 			System.out.println("Server in ascolto sulla porta 9000");
+
 			Socket socket = serverSocket.accept();
 
 			System.out.println("Un client si è connesso!");
@@ -28,11 +29,11 @@ public class Dialogo01 {
 
 			br.close();
 			pw.close();
+		
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	// in prima battuta, sviluppiamo un eco
