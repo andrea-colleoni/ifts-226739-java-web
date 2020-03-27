@@ -2,8 +2,8 @@ Esercizio 1:
 
 - A partire dal client multi thread realizzare:
 	- Un editor di testo di rete:
-	Un server che quando di connette un client con putty, anziché scrivere i messaggi da questo client sulla console con un echo, li scrive su un file di testo.
-	Il nome del file di testo è determinato dalla prima riga che il client scrive.
+	Un server che quando si connette un client con putty, anzich� scrivere i messaggi da questo client sulla console con un echo, li scrive su un file di testo.
+	Il nome del file di testo � determinato dalla prima riga che il client scrive.
 	
 Esercizio 2:
 
@@ -12,7 +12,7 @@ Esercizio 2:
 	un programma che letto il nome di un file dalla prima riga che il client scrive, cerca questo file (di testo) sul file system del server e lo scrive sul client (come testo)
 	
 Esercizio 3:
-- A partore da quanto fatto negli esercizi precedenti realizzare:
+- A partire da quanto fatto negli esercizi precedenti realizzare:
 	- Una chat
 	un programma che ad ogni messaggio proveniente da ciascun client, scriva questo messaggio sull'outputstream di OGNI client, cioè il messaggio di un client deve essere mandato a tutti i client connessi.
 	Per identificare un client, la prima riga che il client scrive, sarà il suo nickname

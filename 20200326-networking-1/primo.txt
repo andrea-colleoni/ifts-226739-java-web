@@ -1,0 +1,4 @@
+Ciao,
+mi chiamo Andrea.
+Questo è l'esercizio 1
+esci
