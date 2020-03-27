@@ -1,0 +1,21 @@
+Iniziando con un nuovo progetto web dinamico, eseguire (in questo unico progetto), i seguenti esercizi:
+
+Esercizio 1:
+Dato un numero intero, passato ad una servlet raggiungibilie all'indirizzo (mapping) 
+=> /esercizio1
+Tramite query string nel parametro "numero", disegnare sul browser il seguente:
+#
+##
+###
+####
+
+Esercizio 2:
+Dati tre parametri
+- operando1 (float)
+- operando2 (float)
+- operazione (string... 1 carattere tra +, -, *, /)
+passati come query string ad una servlet raggiungibile all'indirizzo
+=> /esercizio2
+Restituire al broswer una stringa tipo:
+Operazione => 10.3 + 4.5 = 14.8
+
