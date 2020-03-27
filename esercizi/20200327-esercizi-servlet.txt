@@ -13,7 +13,7 @@ Esercizio 2:
 Dati tre parametri
 - operando1 (float)
 - operando2 (float)
-- operazione (string... 1 carattere tra + [usare %2B], -, *, /)
+- operazione (string... 1 carattere tra + [usare %2B], -, *, / [usare %2B])
 passati come query string ad una servlet raggiungibile all'indirizzo
 => /esercizio2
 Restituire al broswer una stringa tipo:
