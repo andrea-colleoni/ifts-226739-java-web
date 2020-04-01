@@ -1,0 +1,10 @@
+1. In elenco playllist rendere l'ID cliccabile
+=> porta all'elenco dei brani della playlist
+
+2. aggiungere una colonna all'elenco playlist con il numero di brani per ciascuna playlist
+
+3. aggiungere una colonna all'elenco brani con il numero di playlist in cui compare il brano
+
+4. aggiungere una colonna all'elenco playlist con la durata totale della playlist (come somma delle durate dei brani in essa contenuti)
+
+5. aggiungere una colonna all'elenco brani con il nome delle playlist in cui il branco compare
