@@ -42,11 +42,11 @@ public class ElencoCorsiController extends HttpServlet {
 			Corso corso;
 			EntityManager em = JpaUtils.getEntityManagerFactory().createEntityManager();
 			corso = em.find(Corso.class, codiceCorso);
+			em.refresh(corso);
 			em.close();
 			
 			request.setAttribute("corso", corso);
 			request.getRequestDispatcher("/WEB-INF/views/corso.jsp").forward(request, response);
 		}
 	}
-
 }

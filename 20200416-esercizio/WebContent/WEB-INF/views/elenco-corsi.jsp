@@ -30,5 +30,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<br>
+	<a href="./">Torna alla home</a>
 </body>
 </html>
