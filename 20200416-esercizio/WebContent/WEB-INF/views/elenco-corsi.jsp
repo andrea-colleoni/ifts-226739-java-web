@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,13 +26,13 @@
 				<td><a href="?codiceCorso=${c.codiceCorso}">${c.codiceCorso}</a></td>
 				<td>${c.titolo}</td>
 				<td>${c.descrizione}</td>
-				<td>${c.dataInizio}</td>
-				<td>${c.dataFine}</td>
+				<td><fmt:formatDate type="date" value="${c.dataInizio}" /></td>
+				<td><fmt:formatDate type="date" value="${c.dataFine}" /></td>
 				<td>${c.monteOre}</td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br>
-	<a href="./">Torna alla home</a>
+	<a href="?mode=new">Nuovo corso </a> | <a href="./">Torna alla home</a>
 </body>
 </html>

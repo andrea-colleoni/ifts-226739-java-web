@@ -12,8 +12,8 @@
 	<h1>Corso ${corso.codiceCorso}</h1>
 	<p>Titolo: <strong>${corso.titolo}</strong></p>
 	<p>Descrizione: <strong>${corso.descrizione}</strong></p>
-	<p>Data inizio: <strong><fmt:formatDate pattern="yyyy-MM-dd" value="${corso.dataInizio}" /></strong></p>
-	<p>Data fine: <strong>${corso.dataFine}</strong></p>
+	<p>Data inizio: <strong><fmt:formatDate type="date" dateStyle="long" value="${corso.dataInizio}" /></strong></p>
+	<p>Data fine: <strong><fmt:formatDate type="date" dateStyle="long" value="${corso.dataFine}" /></strong></p>
 	<p>Monte ore: <strong>${corso.monteOre}</strong></p>
 	<a href="?codiceCorso=${ corso.codiceCorso }&mode=edit">Modifica</a>
 	<br>
