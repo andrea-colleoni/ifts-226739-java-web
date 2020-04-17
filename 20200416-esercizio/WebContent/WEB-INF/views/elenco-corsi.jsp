@@ -21,7 +21,7 @@
 		</tr>
 		<c:forEach var="c" items="${corsi}">
 			<tr>
-				<td>${c.codiceCorso}</td>
+				<td><a href="?codiceCorso=${c.codiceCorso}">${c.codiceCorso}</a></td>
 				<td>${c.titolo}</td>
 				<td>${c.descrizione}</td>
 				<td>${c.dataInizio}</td>
