@@ -42,11 +42,17 @@ public class ElencoCorsiController extends HttpServlet {
 			Corso corso;
 			EntityManager em = JpaUtils.getEntityManagerFactory().createEntityManager();
 			corso = em.find(Corso.class, codiceCorso);
+			// invalida la cache di JPA e interroga il DB rinfrescando l'oggetto
 			em.refresh(corso);
 			em.close();
 			
 			request.setAttribute("corso", corso);
-			request.getRequestDispatcher("/WEB-INF/views/corso.jsp").forward(request, response);
+			String mode = request.getParameter("mode");
+			if ("edit".contentEquals(mode)) {
+				request.getRequestDispatcher("/WEB-INF/views/edit-corso.jsp").forward(request, response);
+			} else {
+				request.getRequestDispatcher("/WEB-INF/views/corso.jsp").forward(request, response);
+			}
 		}
 	}
 }
