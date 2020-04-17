@@ -16,10 +16,10 @@ import model.Corso;
 import utils.JpaUtils;
 
 /**
- * Servlet implementation class ElencoCorsiController
+ * Servlet implementation class CorsiController
  */
 @WebServlet("/corsi")
-public class ElencoCorsiController extends HttpServlet {
+public class CorsiController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
