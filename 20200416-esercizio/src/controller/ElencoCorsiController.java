@@ -56,14 +56,23 @@ public class ElencoCorsiController extends HttpServlet {
 				corso = em.find(Corso.class, codiceCorso);
 				// invalida la cache di JPA e interroga il DB rinfrescando l'oggetto
 				em.refresh(corso);
-
-				request.setAttribute("corso", corso);
-
-				if (mode != null && "edit".contentEquals(mode)) {
-					request.setAttribute("mode", mode);
-					request.getRequestDispatcher("/WEB-INF/views/edit-corso.jsp").forward(request, response);
+				
+				if (mode != null && "delete".contentEquals(mode)) {
+					em.getTransaction().begin();
+					em.remove(corso);
+					em.getTransaction().commit();
+					
+					request.setAttribute("corsi", em.createQuery("select corso from Corso corso", Corso.class).getResultList());
+					request.getRequestDispatcher("/WEB-INF/views/elenco-corsi.jsp").forward(request, response);
 				} else {
-					request.getRequestDispatcher("/WEB-INF/views/corso.jsp").forward(request, response);
+					request.setAttribute("corso", corso);
+	
+					if (mode != null && "edit".contentEquals(mode)) {
+						request.setAttribute("mode", mode);
+						request.getRequestDispatcher("/WEB-INF/views/edit-corso.jsp").forward(request, response);
+					} else {
+						request.getRequestDispatcher("/WEB-INF/views/corso.jsp").forward(request, response);
+					}
 				}
 			}
 			em.close();

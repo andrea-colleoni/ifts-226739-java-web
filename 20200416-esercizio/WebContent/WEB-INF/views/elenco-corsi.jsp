@@ -23,7 +23,8 @@
 		</tr>
 		<c:forEach var="c" items="${corsi}">
 			<tr>
-				<td><a href="?codiceCorso=${c.codiceCorso}">${c.codiceCorso}</a></td>
+				<td><a href="?codiceCorso=${c.codiceCorso}">${c.codiceCorso}</a> 
+				(<a href="?codiceCorso=${c.codiceCorso}&mode=edit">modifica</a> | <a href="?codiceCorso=${c.codiceCorso}&mode=delete">elimina</a>)</td>
 				<td>${c.titolo}</td>
 				<td>${c.descrizione}</td>
 				<td><fmt:formatDate type="date" value="${c.dataInizio}" /></td>
@@ -33,6 +34,6 @@
 		</c:forEach>
 	</table>
 	<br>
-	<a href="?mode=new">Nuovo corso </a> | <a href="./">Torna alla home</a>
+	<a href="?mode=new">Nuovo corso</a> | <a href="./">Torna alla home</a>
 </body>
 </html>

@@ -26,7 +26,6 @@
 			<input type="hidden" value="${ corso.codiceCorso }" name="codiceCorso" />
 		</c:if>
 		
-		<input type="hidden" value="${ corso.codiceCorso }" name="codiceCorso" />
 		<p>Titolo: <input type="text" value="${corso.titolo}" name="titolo" /></p>
 		
 		<p>Descrizione: <textarea name="descrizione">${corso.descrizione}</textarea></p>
