@@ -24,15 +24,14 @@ public class ElencoCorsiController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		EntityManager em = JpaUtils.getEntityManagerFactory().createEntityManager();
 		// leggo il parametro codiceCorso
 		String codiceCorso = request.getParameter("codiceCorso");
 		if (codiceCorso == null) {
 			List<Corso> corsi;
-			EntityManager em = JpaUtils.getEntityManagerFactory().createEntityManager();
 			// creiamo una query JPQL per estrarre tutti i corsi dal DB con entitymanager
 			// JPQL è diverso dall'SQL => è object oriented (che per noi è un bene!!)
 			corsi = em.createQuery("select corso from Corso corso", Corso.class).getResultList();
-			em.close();
 			
 			// dobbiamo passare alla view l'elenco dei corsi che abbiamo appena recuperato
 			request.setAttribute("corsi", corsi);
@@ -40,19 +39,35 @@ public class ElencoCorsiController extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/views/elenco-corsi.jsp").forward(request, response);
 		} else {
 			Corso corso;
-			EntityManager em = JpaUtils.getEntityManagerFactory().createEntityManager();
 			corso = em.find(Corso.class, codiceCorso);
 			// invalida la cache di JPA e interroga il DB rinfrescando l'oggetto
 			em.refresh(corso);
-			em.close();
 			
 			request.setAttribute("corso", corso);
 			String mode = request.getParameter("mode");
-			if ("edit".contentEquals(mode)) {
+			if (mode != null && "edit".contentEquals(mode)) {
 				request.getRequestDispatcher("/WEB-INF/views/edit-corso.jsp").forward(request, response);
 			} else {
 				request.getRequestDispatcher("/WEB-INF/views/corso.jsp").forward(request, response);
 			}
 		}
+		em.close();
 	}
+
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+		// tutto quello che arriva da una form HTML è SEMPRE tutto testo (String)
+		// quindi andrà convertito nel tipo corretto
+		String codiceCorso = request.getParameter("codiceCorso");
+		String titolo = request.getParameter("titolo");
+		String descrizione = request.getParameter("descrizione");
+		String dataInizio = request.getParameter("dataInizio");
+		String dataFine = request.getParameter("dataFine");
+		String monteOre = request.getParameter("monteOre");
+		
+		System.out.println(titolo);
+	}
+
+	
 }
