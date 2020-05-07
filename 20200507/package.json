@@ -1,0 +1,16 @@
+{
+  "name": "sito-web",
+  "version": "1.0.0",
+  "description": "Sito di test per il corso IFTS full stack dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "andrea",
+  "license": "ISC",
+  "dependencies": {
+    "@popperjs/core": "^2.4.0",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.5.1"
+  }
+}
