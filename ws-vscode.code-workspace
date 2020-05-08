@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "prima-rest-api"
+		},
+		{
+			"path": "primo-angular"
 		}
 	]
 }

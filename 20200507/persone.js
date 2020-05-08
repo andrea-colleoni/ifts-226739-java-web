@@ -7,6 +7,17 @@ $(() => {
     // del notro programma
     // il DOM è caricato, posso
 
+    caricaPersone();
+
+    $('#btn-indietro').click(() => {
+        $('#tbl-persone').toggle();
+        $('#dettaglio').toggle();
+        caricaPersone();
+    });
+
+});
+
+function caricaPersone() {
     $.ajax({
         url: 'http://localhost:8080/prima-rest-api/persone',
         method: 'get',
@@ -15,6 +26,7 @@ $(() => {
         console.log('tutto ok', persone);
 
         // ` (alt + 96) è il delimitatore per attivare l'interpolazione delle stringhe
+        $('#tbl-persone > tbody').empty();
         persone.forEach(persona => {
             $('#tbl-persone > tbody').append(`<tr>
                 <td>${persona.nome}</td>
@@ -30,28 +42,28 @@ $(() => {
         // la chimata ajax si è conclusa in modo negativo (eg. httpstatus = 500)
         console.warn('qualcosa è andato storto');
     });
-
-    $('#btn-indietro').click(() => {
-        $('#tbl-persone').toggle('fast');
-        $('#dettaglio').toggle('fast');
-    });
-
-});
+}
 
 function apriDettaglio(nome, cognome, email) {
-    $('#tbl-persone').toggle('fast');
-    $('#dettaglio').toggle('fast');
+    $('#tbl-persone').toggle();
+    $('#dettaglio').toggle();
     console.log(nome, cognome, email);
     $('#lbl-nome').text(nome);
-    // finire di valorizzare i campi
+    $('#lbl-cognome').text(cognome);
+    $('#lbl-email').text(email);
 }
 
 function caricaDettaglio(email) {
     $.ajax({
         url: `http://localhost:8080/prima-rest-api/persone?email=${email}`,
         method: 'get',
+    }).done((persona) => {
+        $('#tbl-persone').toggle();
+        $('#dettaglio').toggle();
+        $('#lbl-nome').text(persona.nome);
+        $('#lbl-cognome').text(persona.cognome);
+        $('#lbl-email').text(persona.email);
     });
-    // scrivere nella funzione done() il toggle dei pannelli e la valorizzazione dei campi
 }
 
 
