@@ -45,13 +45,18 @@ public class PersoneController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		setAccessControlHeaders(response);
-		List<Persona> persone = JPAUtil.getEm().createQuery("select p from Persona p", Persona.class).getResultList();
-		
-		// devo trasformare il mio oggetto in JSON
 		ObjectMapper om = new ObjectMapper();
-		String json = om.writeValueAsString(persone);
+		
 		response.setContentType("application/json");
-		response.getWriter().append(json);
+		
+		String email = request.getParameter("email");
+		if (email == null) {
+			List<Persona> persone = JPAUtil.getEm().createQuery("select p from Persona p", Persona.class).getResultList();
+			response.getWriter().append(om.writeValueAsString(persone));
+		} else {
+			Persona p = JPAUtil.getEm().find(Persona.class, email);
+			response.getWriter().append(om.writeValueAsString(p));
+		}
 	}
 
 }

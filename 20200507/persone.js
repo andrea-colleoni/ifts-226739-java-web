@@ -20,7 +20,10 @@ $(() => {
                 <td>${persona.nome}</td>
                 <td>${persona.cognome}</td>
                 <td>${persona.email}</td>
-                <td><button>Clicca qui!</button></td>
+                <td>
+                   <button class="btn btn-secondary" onclick="apriDettaglio('${persona.nome}', '${persona.cognome}', '${persona.email}')">Apri dettagli</button>
+                   <button class="btn btn-secondary" onclick="caricaDettaglio('${persona.email}')">Ricarica dettagli</button>
+                </td>
             </tr>`);
         });
     }).fail(() => {
@@ -28,13 +31,33 @@ $(() => {
         console.warn('qualcosa è andato storto');
     });
 
-
-    $('#btnToggle').click(() => {
-        // hide se è visible; show se è hidden
+    $('#btn-indietro').click(() => {
         $('#tbl-persone').toggle('fast');
         $('#dettaglio').toggle('fast');
-    })
+    });
+
 });
+
+function apriDettaglio(nome, cognome, email) {
+    $('#tbl-persone').toggle('fast');
+    $('#dettaglio').toggle('fast');
+    console.log(nome, cognome, email);
+    $('#lbl-nome').text(nome);
+    // finire di valorizzare i campi
+}
+
+function caricaDettaglio(email) {
+    $.ajax({
+        url: `http://localhost:8080/prima-rest-api/persone?email=${email}`,
+        method: 'get',
+    });
+    // scrivere nella funzione done() il toggle dei pannelli e la valorizzazione dei campi
+}
+
+
+
+
+
 
 // JS ha un type system dinamico (non come Java che ha un TS statico)
 var a = 10;
