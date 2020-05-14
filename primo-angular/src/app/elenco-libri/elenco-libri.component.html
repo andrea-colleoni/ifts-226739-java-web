@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let libro of libri">
+    <tr *ngFor="let libro of libri" (click)="clickLibro(libro)">
       <td>{{ libro.isbn }}</td>
       <td>{{ libro.titolo }}</td>
       <td>{{ libro.descrizione }}</td>
@@ -19,4 +19,17 @@
     </tr>
   </tbody>
 </table>
-<h4>Stai visualizzando un elenco di {{ libri.length }} libri</h4>
+<h4 *ngIf="libri">Stai visualizzando un elenco di {{ libri.length }} libri</h4>
+<div *ngIf="libroSelezionato">
+  <label>Codice ISBN</label>
+  <input type="text" [(ngModel)]="libroSelezionato.isbn" readonly><br>
+  <label>Titolo</label>
+  <input type="text" [(ngModel)]="libroSelezionato.titolo"><br>
+  <label>Descrizione</label>
+  <textarea [(ngModel)]="libroSelezionato.descrizione"></textarea><br>
+  <label>Anno di pubblicazione</label>
+  <input type="number" [(ngModel)]="libroSelezionato.annoPubblicazione"><br>
+  <label>N° pagine</label>
+  <input type="number" [(ngModel)]="libroSelezionato.numeroPagine"><br>
+  <button (click)="salvaLibro()">Salva</button>
+</div>

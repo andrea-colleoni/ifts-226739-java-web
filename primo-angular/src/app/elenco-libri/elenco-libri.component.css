@@ -1,0 +1,18 @@
+table {
+  border: 1px solid gray;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table > thead > tr th {
+  border-bottom: 2px solid black;
+}
+
+table > tbody td {
+  border: 1px dotted gray;
+}
+
+label {
+  display: inline-block;
+  width: 250px;
+}

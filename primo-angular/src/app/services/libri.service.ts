@@ -17,4 +17,8 @@ export class LibriService {
   getLibri(): Observable<Libro[]> {
     return this.http.get<Libro[]>('http://localhost:8080/api/libri');
   }
+
+  save(libro: Libro): Observable<boolean> {
+    return this.http.put<boolean>(`http://localhost:8080/api/libri/${libro.isbn}`, libro);
+  }
 }
