@@ -1,0 +1,22 @@
+<h3>Elenco libri</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Cod. ISBN</th>
+      <th>Titolo</th>
+      <th>Descrizione</th>
+      <th>Anno di pubblicazione</th>
+      <th>N&deg; di pagine</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let libro of libri">
+      <td>{{ libro.isbn }}</td>
+      <td>{{ libro.titolo }}</td>
+      <td>{{ libro.descrizione }}</td>
+      <td>{{ libro.annoPubblicazione }}</td>
+      <td>{{ libro.numeroPagine }}</td>
+    </tr>
+  </tbody>
+</table>
+<h4>Stai visualizzando un elenco di {{ libri.length }} libri</h4>

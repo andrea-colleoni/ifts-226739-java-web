@@ -9,6 +9,7 @@ export class TestComponent implements OnInit {
 
   nome = 'Andrea';
   numero = 1;
+  // private proprieta = 'pippo';
 
   constructor() { }
 
